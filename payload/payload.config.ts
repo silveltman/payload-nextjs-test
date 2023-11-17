@@ -6,6 +6,7 @@ import { pages } from "./collections/pages";
 import { users } from "./collections/users";
 import { images } from "./collections/images";
 
+// working hopefully
 export default buildConfig({
   admin: {
     user: users.slug,
