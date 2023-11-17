@@ -4,7 +4,7 @@ import { postgresAdapter } from "@payloadcms/db-postgres"; // beta
 import { lexicalEditor } from "@payloadcms/richtext-lexical"; // beta
 import { pages } from "./collections/pages";
 import { users } from "./collections/users";
-import { images } from "./collections/images";
+import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
 
 // working hopefully
 export default buildConfig({
@@ -15,5 +15,5 @@ export default buildConfig({
     url: process.env.MONGODB_URI || false,
   }),
   editor: lexicalEditor({}),
-  collections: [users, pages, images],
+  collections: [users, pages],
 });
