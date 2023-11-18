@@ -16,4 +16,17 @@ export default buildConfig({
   }),
   editor: lexicalEditor({}),
   collections: [users, pages],
+  cors: [
+    "*",
+    "http://localhost:4321",
+    "http://localhost:3000",
+    "https://vercel.app",
+    "https://payload-nextjs-test.vercel.app",
+  ],
+  csrf: [
+    "http://localhost:4321",
+    "http://localhost:3000",
+    "https://vercel.app",
+    "https://payload-nextjs-test.vercel.app",
+  ],
 });
