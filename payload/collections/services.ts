@@ -1,37 +1,39 @@
 import { CollectionConfig } from 'payload/types'
-import beforeDuplicate from '../hooks/beforeDuplicate'
 import { isAdmin } from '../access/isAdmin'
 import {
-  contactBlock,
   contentBlock,
   ctaBlock,
-  employeesBlock,
   featuresBlock,
   heroBlock,
-  logosBlock,
   offersBlock,
-  postsBlock,
   reviewsBlock,
   servicesBlock,
-  statsBlock,
-  bookingBlock,
 } from '../blocks'
-
-import { imagesBlock } from '../blocks/imagesBlock'
 import blocks from '../fields/blocks'
+import description from '../fields/description'
+import { image } from '../fields/elements/image'
+import beforeDuplicate from '../hooks/beforeDuplicate'
 import slug from '../fields/slug'
+import title from '../fields/title'
 
-export const pages: CollectionConfig = {
-  slug: 'pages',
+export const services: CollectionConfig = {
+  slug: 'services',
+  labels: {
+    singular: 'Dienst',
+    plural: 'Diensten',
+  },
   admin: {
-    useAsTitle: 'slug',
+    useAsTitle: 'title',
     group: 'Pages',
-    defaultColumns: ['slug', 'status', 'updatedAt'],
-    listSearchableFields: ['slug'],
+    defaultColumns: ['title', 'status', 'updatedAt'],
+    listSearchableFields: ['title', 'description'],
     preview: ({ url }: any) => url,
     hooks: {
       beforeDuplicate,
     },
+  },
+  versions: {
+    drafts: true,
   },
   access: {
     read: () => true,
@@ -39,17 +41,18 @@ export const pages: CollectionConfig = {
     create: isAdmin,
     delete: isAdmin,
   },
-  versions: {
-    drafts: true,
-  },
   fields: [
     {
       type: 'tabs',
       tabs: [
         {
+          label: 'Info',
+          fields: [title, description, image],
+        },
+        {
           label: 'Page',
           fields: [
-            // slug,
+            slug,
             {
               name: 'type',
               type: 'radio',
@@ -58,20 +61,13 @@ export const pages: CollectionConfig = {
               options: ['blocks', 'rich'],
             },
             blocks([
-              contactBlock,
               contentBlock,
               ctaBlock,
-              featuresBlock,
               heroBlock,
-              imagesBlock,
-              logosBlock,
               offersBlock,
-              postsBlock,
               reviewsBlock,
               servicesBlock,
-              statsBlock,
-              employeesBlock,
-              bookingBlock,
+              featuresBlock,
             ]),
           ],
         },

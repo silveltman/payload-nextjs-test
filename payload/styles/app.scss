@@ -1,0 +1,60 @@
+:root {
+  --base-px: 25;
+  --base-body-size: 13;
+  --base: calc((var(--base-px) / var(--base-body-size)) * 1rem);
+
+  --breakpoint-xs-width: #{$breakpoint-xs-width};
+  --breakpoint-s-width: #{$breakpoint-s-width};
+  --breakpoint-m-width: #{$breakpoint-m-width};
+  --breakpoint-l-width: #{$breakpoint-l-width};
+  --scrollbar-width: 17px;
+
+  --theme-bg: var(--theme-elevation-0);
+  --theme-input-bg: var(--theme-elevation-0);
+  --theme-text: var(--theme-elevation-800);
+  --theme-overlay: rgba(5, 5, 5, 0.5);
+  --theme-baseline: #{$baseline-px};
+  --theme-baseline-body-size: #{$baseline-body-size};
+  --font-body: 'Suisse Intl', system-ui;
+  --font-mono: monospace;
+  --font-serif: 'Merriweather', serif;
+
+  // --style-radius-s: #{$style-radius-s};
+  // --style-radius-m: #{$style-radius-m};
+  // --style-radius-l: #{$style-radius-l};
+  --style-radius-s: 6px;
+  --style-radius-m: 8px;
+  --style-radius-l: 12px;
+
+  --z-popup: 10;
+  --z-nav: 20;
+  --z-modal: 30;
+  --z-status: 40;
+
+  --accessibility-outline: 2px solid var(--theme-text);
+  --accessibility-outline-offset: 2px;
+
+  --gutter-h: #{base(3)};
+  --spacing-view-bottom: var(--gutter-h);
+  --app-header-height: calc(var(--base) * 3);
+  --doc-controls-height: calc(var(--base) * 3);
+  --nav-width: 220px;
+  --nav-trans-time: 0ms;
+
+  @include mid-break {
+    --gutter-h: #{base(2)};
+    --app-header-height: calc(var(--base) * 2);
+    --doc-controls-height: calc(var(--base) * 1.5);
+    // set to xs-breakpoint to achieve a seamless transition to full screen
+    --nav-width: var(--breakpoint-xs-width);
+  }
+
+  @include small-break {
+    --gutter-h: #{base(0.5)};
+    --spacing-view-bottom: calc(var(--base) * 2);
+  }
+
+  @include extra-small-break {
+    --nav-width: 100vw;
+  }
+}

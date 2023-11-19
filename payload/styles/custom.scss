@@ -1,0 +1,146 @@
+// Settings and layout
+.field-variant,
+.field-layout {
+  .doc-drawer__toggler,
+  .clear-indicator {
+    display: none;
+  }
+}
+
+// Slug
+.row-slug {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+
+  .field-slug {
+    align-items: center;
+    padding-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .field-url {
+    padding-left: 0 !important;
+    margin-top: 8px !important;
+    display: flex;
+    align-items: end;
+
+    .field-label {
+      display: none;
+    }
+  }
+}
+
+// // Make title of an array small
+// .array-field__title {
+//     display: flex;
+//     padding-bottom: 0.4807692308rem;
+//     color: var(--theme-elevation-800);
+//     font-family: var(--font-body);
+//     font-size: 13px;
+//     line-height: 25px;
+//     font-weight: normal;
+// }
+
+// radius small
+input,
+.rs__control,
+.collapsible,
+.list-controls__wrap,
+.pill,
+.upload__wrap,
+.textarea-outer {
+  border-radius: var(--style-radius-s) !important;
+}
+// radius medium
+.btn,
+.doc-tab {
+  border-radius: var(--style-radius-m) !important;
+  overflow: hidden;
+}
+// radius large
+.card,
+.thumbnail-card {
+  border-radius: var(--style-radius-l) !important;
+  overflow: hidden;
+}
+
+// card
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.9615384615rem;
+
+  &__actions {
+    margin-top: 0;
+  }
+}
+
+// doc top nav controls
+.doc-controls {
+  background: var(--theme-elevation-50) !important;
+
+  &::before {
+    display: none;
+  }
+}
+
+.nav {
+  background: var(--theme-elevation-50) !important;
+
+  &__header::before {
+    display: none;
+  }
+
+  &__wrap {
+    gap: 20px;
+  }
+}
+
+// Homepage dashboard
+.dashboard__wrap {
+  gap: calc(var(--base) * 2);
+}
+
+// Doc table
+.table td:nth-child(2) {
+  padding: 0 !important;
+
+  a {
+    padding: 1.4423076923rem;
+    width: 100%;
+    display: flex;
+  }
+}
+
+// settings
+.field-classes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999 !important;
+
+  .collapsible__toggle,
+  .collapsible__header-wrap,
+  .collapsible__actions-wrap {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    padding-left: 7px !important;
+    padding-right: 2px !important;
+
+    top: 0 !important;
+    right: 0 !important;
+  }
+
+  .collapsible__content {
+    z-index: 1 !important;
+    position: relative;
+  }
+}
+
+.group-field__wrap,
+.blocks-field__fields,
+.collapsible__content {
+  position: relative;
+}

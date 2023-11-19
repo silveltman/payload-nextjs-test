@@ -1,20 +1,33 @@
-import { CollectionConfig } from "payload/types";
+import { CollectionConfig } from 'payload/types'
+// Access
+import { isAdminFieldLevel } from '../access/isAdmin'
 
 export const users: CollectionConfig = {
-  slug: "users",
-  auth: {
-    tokenExpiration: 7200, // How many seconds to keep the user logged in
-    verify: true, // Require email verification before being allowed to authenticate
-    maxLoginAttempts: 5, // Automatically lock a user out after X amount of failed logins
-    lockTime: 600 * 1000, // Time period to allow the max login attempts
-    // More options are available
+  slug: 'users',
+  auth: true,
+  admin: {
+    useAsTitle: 'email',
+    group: 'Backend',
+    defaultColumns: ['email', 'id'],
+  },
+  access: {
+    read: () => true,
+    delete: () => true,
+    create: () => true,
+    update: () => true,
   },
   fields: [
     {
-      name: "role",
-      type: "select",
-      required: true,
-      options: ["user", "admin", "editor", "developer"],
+      name: 'roles',
+      type: 'select',
+      options: ['admin', 'ai', 'developer', 'designer', 'writer'],
+      hasMany: true,
+      access: {
+        create: isAdminFieldLevel,
+        update: isAdminFieldLevel,
+      },
+      saveToJWT: true,
+      defaultValue: 'admin',
     },
   ],
-};
+}
