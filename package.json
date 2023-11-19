@@ -13,6 +13,8 @@
     "@payloadcms/db-postgres": "^0.1.13",
     "@payloadcms/next-payload": "^0.1.9",
     "@payloadcms/plugin-cloud-storage": "^1.1.1",
+    "@payloadcms/plugin-form-builder": "^1.0.15",
+    "@payloadcms/plugin-seo": "^1.0.15",
     "@payloadcms/richtext-lexical": "^0.1.17",
     "next": "13",
     "payload": "^2.1.1",
