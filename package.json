@@ -19,7 +19,8 @@
     "next": "13",
     "payload": "^2.1.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "slate": "^0.100.0"
   },
   "devDependencies": {
     "@types/node": "^20",
