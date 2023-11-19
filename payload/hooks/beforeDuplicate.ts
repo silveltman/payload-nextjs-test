@@ -1,4 +1,4 @@
-export default ({ data }) => {
+export default ({ data }: any) => {
   return {
     ...data,
     title: `${data.title} Copy`,

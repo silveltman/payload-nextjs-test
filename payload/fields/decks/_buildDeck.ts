@@ -7,7 +7,8 @@ interface Args {
   settingsTabs: Tab[]
 }
 
-function capitalize(string: string) {
+function capitalize(string: string | undefined) {
+  if (!string) return
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 

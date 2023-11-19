@@ -34,7 +34,7 @@ export default ({ slug, imageURL, dataFields, settingsTabs }: Args) => ({
         maxRows: 2,
         admin: {
           components: {
-            RowLabel: ({ data }) => data?.name,
+            RowLabel: ({ data }: any) => data?.name,
           },
         },
         fields: [
