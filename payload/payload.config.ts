@@ -1,9 +1,9 @@
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import FormBuilder from '@payloadcms/plugin-form-builder'
-import seo from '@payloadcms/plugin-seo'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
-import { buildConfig } from 'payload/config'
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import FormBuilder from "@payloadcms/plugin-form-builder";
+import seo from "@payloadcms/plugin-seo";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import path from "path";
+import { buildConfig } from "payload/config";
 import {
   employees,
   images,
@@ -13,20 +13,23 @@ import {
   reviews,
   services,
   users,
-} from './collections'
-import {
-  company,
-  cta,
-  footer,
-  header,
-  settings,
-} from './globals'
+} from "./collections";
+import { company, cta, footer, header, settings } from "./globals";
+
+console.log(
+  "process.env.MONGODB_URI",
+  process.env.MONGODB_URI,
+  process.env.MONGODB_URI,
+  process.env.MONGODB_URI,
+  process.env.MONGODB_URI,
+  process.env.MONGODB_URI
+);
 
 export default buildConfig({
   admin: {
     user: users.slug,
     // css: path.resolve(__dirname, './styles/main.scss'),
-    dateFormat: 'dd/MM/yyyy',
+    dateFormat: "dd/MM/yyyy",
     // avatar: 'gravatar',
     // livePreview: {
     //   collections: [
@@ -59,26 +62,26 @@ export default buildConfig({
   ],
   globals: [company, header, footer, cta, settings],
   // typescript: {
-    // outputFile: path.resolve(__dirname, '../../astro/src/types/payload.d.ts'),
-    // outputFile: path.resolve(__dirname, './types/payload-types.d.ts'),
+  // outputFile: path.resolve(__dirname, '../../astro/src/types/payload.d.ts'),
+  // outputFile: path.resolve(__dirname, './types/payload-types.d.ts'),
   // },
   // graphQL: {
-    // schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
+  // schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   // },
   // serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   cors: [
-    '*',
-    'http://localhost:4321',
-    'http://localhost:3000',
-    'https://vercel.app',
+    "*",
+    "http://localhost:4321",
+    "http://localhost:3000",
+    "https://vercel.app",
     "https://payload-nextjs-test.vercel.app",
     // process.env.PAYLOAD_PUBLIC_SERVER_URL,
     // process.env.PAYLOAD_PUBLIC_APP_URL,
   ],
   csrf: [
-    'http://localhost:4321',
-    'http://localhost:3000',
-    'https://vercel.app',
+    "http://localhost:4321",
+    "http://localhost:3000",
+    "https://vercel.app",
     "https://payload-nextjs-test.vercel.app",
     // process.env.PAYLOAD_PUBLIC_SERVER_URL,
     // process.env.PAYLOAD_PUBLIC_APP_URL,
@@ -89,15 +92,15 @@ export default buildConfig({
   // },
   plugins: [
     seo({
-      uploadsCollection: 'images',
+      uploadsCollection: "images",
       tabbedUI: true,
       collections: [
-        'pages',
-        'posts',
-        'services',
-        'reviews',
-        'policies',
-        'categories',
+        "pages",
+        "posts",
+        "services",
+        "reviews",
+        "policies",
+        "categories",
       ],
       // generateTitle: ({ doc }: any) => doc?.title?.value,
       // generateDescription: ({ doc }: any) => doc?.description?.value,
@@ -111,16 +114,16 @@ export default buildConfig({
       formOverrides: {
         versions: true,
         admin: {
-          group: 'Data',
+          group: "Data",
         },
       },
       formSubmissionOverrides: {
-        slug: 'submissions',
+        slug: "submissions",
         admin: {
-          group: 'Backend',
+          group: "Backend",
         },
       },
     }),
     // configuredStripePlugin,
   ],
-})
+});
